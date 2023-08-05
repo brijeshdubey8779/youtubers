@@ -31,10 +31,10 @@
 
 
     <section class="container d-flex justify-content-center align-items-center mt-4">
-        <form class="row text-center">
+        <form method="GET" action="{% url 'search' %}" class="row text-center">
             <div class="col-md-auto">
                 <div class="form-group mb-2">
-                    <input type="password" class="form-control" placeholder="Enter Keywords">
+                    <input name="keyword" class="form-control" placeholder="Enter Keywords">
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-accent ml-2 mb-2 pl-5 pr-5">Search</button>
@@ -54,8 +54,8 @@
             {% for fy in featured_youtubers %}
             <div class="card border-0 text-center ml-3 mr-3">
                 <div class="feature-text">
-                    <img src="{{ fy.photo.url }}"
-                        class="card-img-top" style="width:100%; height: 267px; object-fit: cover;" alt="team-member {{ fy.name }}">
+                    <img src="{{ fy.photo.url }}" class="card-img-top"
+                        style="width:100%; height: 267px; object-fit: cover;" alt="team-member {{ fy.name }}">
                     <span class="text-left bg-accent font-weight-bold">
                         Featured
                     </span>
@@ -98,8 +98,8 @@
             {% for lob in latest_on_board %}
             <div class="card border-0 text-center">
                 <div>
-                    <img src="{{ lob.photo.url }}"
-                        class="card-img-top" style="height: 267px; object-fit: cover;" alt="team-member">
+                    <img src="{{ lob.photo.url }}" class="card-img-top" style="height: 267px; object-fit: cover;"
+                        alt="team-member">
 
                 </div>
                 <div class="card-body">
@@ -132,7 +132,8 @@
             <!-- team 1 -->
             {% for team in team_members %}
             <div class="card border-0 text-center  ml-3 mr-3">
-                <img src="{{ team.photo }}" class="card-img-top" style="width:100%;height:368px; object-fit: cover;" alt="team-member">
+                <img src="{{ team.photo }}" class="card-img-top" style="width:100%;height:368px; object-fit: cover;"
+                    alt="team-member">
                 <div class="card-body">
                     <h5 class="card-title">{{ team.first_name}} {{team.last_name }}</h5>
                     <p class="card-text">{{ team.role }}</p>
