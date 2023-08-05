@@ -44,171 +44,38 @@
         </form>
     </section>
 
+    <!-- Featured youtubers -->
     <section class="container mt-3">
         <h3 class="text-center">Featured YTubers</h3>
         <p class="pt-2 pb-3 text-center">YTubers that did extra ordinary last month</p>
         <div class="team slider" data-slick='{"slidesToShow": 3, "slidesToScroll": 1}'>
 
             <!-- person 1 -->
+            {% for fy in featured_youtubers %}
             <div class="card border-0 text-center ml-3 mr-3">
                 <div class="feature-text">
-                    <img src="https://images.pexels.com/photos/320617/pexels-photo-320617.jpeg?auto=compress&cs=tinysrgb&w=400"
-                        class="card-img-top" alt="team-member">
+                    <img src="{{ fy.photo.url }}"
+                        class="card-img-top" style="width:100%; height: 267px; object-fit: cover;" alt="team-member {{ fy.name }}">
                     <span class="text-left bg-accent font-weight-bold">
                         Featured
                     </span>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Team Member One</h5>
-                    <p class="card-text">Gaming</p>
+                    <h5 class="card-title">{{ fy.name }}</h5>
+                    <p class="card-text">{{ fy.category }}</p>
                     <div class="person-description mt-2">
-                        <button class="btn btn-accent"> City </button>
-                        <button class="btn btn-accent"> Age </button>
-                        <button class="btn btn-accent"> Height </button>
+                        <button class="btn btn-accent"> City: {{ fy.city }} </button>
+                        <button class="btn btn-accent"> Age: {{ fy.age }}</button>
+                        <button class="btn btn-accent"> Hight: {{ fy.height }} </button>
                     </div>
                     <div class="person-description mt-2">
-                        <button class="btn btn-accent"> Solo </button>
-                        <button class="btn btn-accent"> Canon </button>
-                        <button class="btn btn-accent"> Subs </button>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- person 1 -->
-            <div class="card border-0 text-center  ml-3 mr-3">
-                <div class="feature-text">
-                    <img src="https://images.pexels.com/photos/320617/pexels-photo-320617.jpeg?auto=compress&cs=tinysrgb&w=400"
-                        class="card-img-top" alt="team-member">
-                    <span class="text-left bg-accent font-weight-bold">
-                        Featured
-                    </span>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Team Member One</h5>
-                    <p class="card-text">Gaming</p>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> City </button>
-                        <button class="btn btn-accent"> Age </button>
-                        <button class="btn btn-accent"> Height </button>
-                    </div>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> Solo </button>
-                        <button class="btn btn-accent"> Canon </button>
-                        <button class="btn btn-accent"> Subs </button>
+                        <button class="btn btn-accent"> crew: {{ fy.crew }} </button>
+                        <button class="btn btn-accent"> camera: {{ fy.camera_type }} </button>
+                        <button class="btn btn-accent"> subs: {{ fy.subs_count }} </button>
                     </div>
                 </div>
             </div>
-
-
-            <!-- person 1 -->
-            <div class="card border-0 text-center  ml-3 mr-3">
-                <div class="feature-text">
-                    <img src="https://images.pexels.com/photos/320617/pexels-photo-320617.jpeg?auto=compress&cs=tinysrgb&w=400"
-                        class="card-img-top" alt="team-member">
-                    <span class="text-left bg-accent font-weight-bold">
-                        Featured
-                    </span>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Team Member One</h5>
-                    <p class="card-text">Gaming</p>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> City </button>
-                        <button class="btn btn-accent"> Age </button>
-                        <button class="btn btn-accent"> Height </button>
-                    </div>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> Solo </button>
-                        <button class="btn btn-accent"> Canon </button>
-                        <button class="btn btn-accent"> Subs </button>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <!-- person 1 -->
-            <div class="card border-0 text-center  ml-3 mr-3">
-                <div class="feature-text">
-                    <img src="https://images.pexels.com/photos/320617/pexels-photo-320617.jpeg?auto=compress&cs=tinysrgb&w=400"
-                        class="card-img-top" alt="team-member">
-                    <span class="text-left bg-accent font-weight-bold">
-                        Featured
-                    </span>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Team Member One</h5>
-                    <p class="card-text">Gaming</p>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> City </button>
-                        <button class="btn btn-accent"> Age </button>
-                        <button class="btn btn-accent"> Height </button>
-                    </div>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> Solo </button>
-                        <button class="btn btn-accent"> Canon </button>
-                        <button class="btn btn-accent"> Subs </button>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <!-- person 1 -->
-            <div class="card border-0 text-center  ml-3 mr-3">
-                <div class="feature-text">
-                    <img src="https://images.pexels.com/photos/320617/pexels-photo-320617.jpeg?auto=compress&cs=tinysrgb&w=400"
-                        class="card-img-top" alt="team-member">
-                    <span class="text-left bg-accent font-weight-bold">
-                        Featured
-                    </span>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Team Member One</h5>
-                    <p class="card-text">Gaming</p>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> City </button>
-                        <button class="btn btn-accent"> Age </button>
-                        <button class="btn btn-accent"> Height </button>
-                    </div>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> Solo </button>
-                        <button class="btn btn-accent"> Canon </button>
-                        <button class="btn btn-accent"> Subs </button>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <!-- person 1 -->
-            <div class="card border-0 text-center  ml-3 mr-3">
-                <div class="feature-text">
-                    <img src="https://images.pexels.com/photos/320617/pexels-photo-320617.jpeg?auto=compress&cs=tinysrgb&w=400"
-                        class="card-img-top" alt="team-member">
-                    <span class="text-left bg-accent font-weight-bold">
-                        Featured
-                    </span>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Team Member One</h5>
-                    <p class="card-text">Gaming</p>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> City </button>
-                        <button class="btn btn-accent"> Age </button>
-                        <button class="btn btn-accent"> Height </button>
-                    </div>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> Solo </button>
-                        <button class="btn btn-accent"> Canon </button>
-                        <button class="btn btn-accent"> Subs </button>
-                    </div>
-                </div>
-            </div>
-
-
-
+            {% endfor %}
         </div>
 
         <div class="controls d-flex justify-content-center mt-2 mb-2">
@@ -221,219 +88,42 @@
 
 
 
-
+    <!-- On board youtubers -->
     <section class="container mt-5 mb-5">
         <h3 class="text-center">Latest On Board YTubers</h3>
         <p class="pt-2 pb-3 text-center">YTubers who recently got onboard with us</p>
 
         <div class="tubers grid">
             <!-- person 1 -->
+            {% for lob in latest_on_board %}
             <div class="card border-0 text-center">
                 <div>
-                    <img src="https://images.pexels.com/photos/320617/pexels-photo-320617.jpeg?auto=compress&cs=tinysrgb&w=400"
-                        class="card-img-top" alt="team-member">
+                    <img src="{{ lob.photo.url }}"
+                        class="card-img-top" style="height: 267px; object-fit: cover;" alt="team-member">
 
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Team Member One</h5>
-                    <p class="card-text">Gaming</p>
+                    <h5 class="card-title">{{ lob.name }}</h5>
+                    <p class="card-text">{{ lob.category }}</p>
                     <div class="person-description mt-2">
-                        <button class="btn btn-accent"> City </button>
-                        <button class="btn btn-accent"> Age </button>
-                        <button class="btn btn-accent"> Height </button>
+                        <button class="btn btn-accent"> City: {{ lob.city }} </button>
+                        <button class="btn btn-accent"> Age: {{ lob.age }} </button>
+                        <button class="btn btn-accent"> Height: {{ lob.hight }} </button>
                     </div>
                     <div class="person-description mt-2">
-                        <button class="btn btn-accent"> Solo </button>
-                        <button class="btn btn-accent"> Canon </button>
-                        <button class="btn btn-accent"> Subs </button>
-                    </div>
-                </div>
-            </div>
-            <!-- person 1 -->
-            <div class="card border-0 text-center">
-                <div>
-                    <img src="https://images.pexels.com/photos/320617/pexels-photo-320617.jpeg?auto=compress&cs=tinysrgb&w=400"
-                        class="card-img-top" alt="team-member">
-
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Team Member One</h5>
-                    <p class="card-text">Gaming</p>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> City </button>
-                        <button class="btn btn-accent"> Age </button>
-                        <button class="btn btn-accent"> Height </button>
-                    </div>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> Solo </button>
-                        <button class="btn btn-accent"> Canon </button>
-                        <button class="btn btn-accent"> Subs </button>
+                        <button class="btn btn-accent"> crew: {{ lob.crew }} </button>
+                        <button class="btn btn-accent"> camera: {{ lob.camera_type }} </button>
+                        <button class="btn btn-accent"> Subs: {{ lob.subs_count }} </button>
                     </div>
                 </div>
             </div>
-            <!-- person 1 -->
-            <div class="card border-0 text-center">
-                <div>
-                    <img src="https://images.pexels.com/photos/320617/pexels-photo-320617.jpeg?auto=compress&cs=tinysrgb&w=400"
-                        class="card-img-top" alt="team-member">
-
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Team Member One</h5>
-                    <p class="card-text">Gaming</p>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> City </button>
-                        <button class="btn btn-accent"> Age </button>
-                        <button class="btn btn-accent"> Height </button>
-                    </div>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> Solo </button>
-                        <button class="btn btn-accent"> Canon </button>
-                        <button class="btn btn-accent"> Subs </button>
-                    </div>
-                </div>
-            </div>
-            <!-- person 1 -->
-            <div class="card border-0 text-center">
-                <div>
-                    <img src="https://images.pexels.com/photos/320617/pexels-photo-320617.jpeg?auto=compress&cs=tinysrgb&w=400"
-                        class="card-img-top" alt="team-member">
-
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Team Member One</h5>
-                    <p class="card-text">Gaming</p>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> City </button>
-                        <button class="btn btn-accent"> Age </button>
-                        <button class="btn btn-accent"> Height </button>
-                    </div>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> Solo </button>
-                        <button class="btn btn-accent"> Canon </button>
-                        <button class="btn btn-accent"> Subs </button>
-                    </div>
-                </div>
-            </div>
-            <!-- person 1 -->
-            <div class="card border-0 text-center">
-                <div>
-                    <img src="https://images.pexels.com/photos/320617/pexels-photo-320617.jpeg?auto=compress&cs=tinysrgb&w=400"
-                        class="card-img-top" alt="team-member">
-
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Team Member One</h5>
-                    <p class="card-text">Gaming</p>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> City </button>
-                        <button class="btn btn-accent"> Age </button>
-                        <button class="btn btn-accent"> Height </button>
-                    </div>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> Solo </button>
-                        <button class="btn btn-accent"> Canon </button>
-                        <button class="btn btn-accent"> Subs </button>
-                    </div>
-                </div>
-            </div>
-            <!-- person 1 -->
-            <div class="card border-0 text-center">
-                <div>
-                    <img src="https://images.pexels.com/photos/320617/pexels-photo-320617.jpeg?auto=compress&cs=tinysrgb&w=400"
-                        class="card-img-top" alt="team-member">
-
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Team Member One</h5>
-                    <p class="card-text">Gaming</p>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> City </button>
-                        <button class="btn btn-accent"> Age </button>
-                        <button class="btn btn-accent"> Height </button>
-                    </div>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> Solo </button>
-                        <button class="btn btn-accent"> Canon </button>
-                        <button class="btn btn-accent"> Subs </button>
-                    </div>
-                </div>
-            </div>
-            <!-- person 1 -->
-            <div class="card border-0 text-center">
-                <div>
-                    <img src="https://images.pexels.com/photos/320617/pexels-photo-320617.jpeg?auto=compress&cs=tinysrgb&w=400"
-                        class="card-img-top" alt="team-member">
-
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Team Member One</h5>
-                    <p class="card-text">Gaming</p>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> City </button>
-                        <button class="btn btn-accent"> Age </button>
-                        <button class="btn btn-accent"> Height </button>
-                    </div>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> Solo </button>
-                        <button class="btn btn-accent"> Canon </button>
-                        <button class="btn btn-accent"> Subs </button>
-                    </div>
-                </div>
-            </div>
-            <!-- person 1 -->
-            <div class="card border-0 text-center">
-                <div>
-                    <img src="https://images.pexels.com/photos/320617/pexels-photo-320617.jpeg?auto=compress&cs=tinysrgb&w=400"
-                        class="card-img-top" alt="team-member">
-
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Team Member One</h5>
-                    <p class="card-text">Gaming</p>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> City </button>
-                        <button class="btn btn-accent"> Age </button>
-                        <button class="btn btn-accent"> Height </button>
-                    </div>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> Solo </button>
-                        <button class="btn btn-accent"> Canon </button>
-                        <button class="btn btn-accent"> Subs </button>
-                    </div>
-                </div>
-            </div>
-            <!-- person 1 -->
-            <div class="card border-0 text-center">
-                <div>
-                    <img src="https://images.pexels.com/photos/320617/pexels-photo-320617.jpeg?auto=compress&cs=tinysrgb&w=400"
-                        class="card-img-top" alt="team-member">
-
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Team Member One</h5>
-                    <p class="card-text">Gaming</p>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> City </button>
-                        <button class="btn btn-accent"> Age </button>
-                        <button class="btn btn-accent"> Height </button>
-                    </div>
-                    <div class="person-description mt-2">
-                        <button class="btn btn-accent"> Solo </button>
-                        <button class="btn btn-accent"> Canon </button>
-                        <button class="btn btn-accent"> Subs </button>
-                    </div>
-                </div>
-            </div>
-
+            {% endfor %}
         </div>
 
     </section>
 
 
-
-
-
+    <!-- team -->
     <section class="container mt-3">
         <h3 class="text-center">Our Amazing Team</h3>
         <p class="pt-2 pb-3 text-center">Meet the team</p>
@@ -442,15 +132,15 @@
             <!-- team 1 -->
             {% for team in team_members %}
             <div class="card border-0 text-center  ml-3 mr-3">
-                <img src="{{ team.photo }}" class="card-img-top" style="width:100%;height:401px;" alt="team-member">
+                <img src="{{ team.photo }}" class="card-img-top" style="width:100%;height:368px; object-fit: cover;" alt="team-member">
                 <div class="card-body">
                     <h5 class="card-title">{{ team.first_name}} {{team.last_name }}</h5>
                     <p class="card-text">{{ team.role }}</p>
-                    <a href="{{ team.yt_link }}" class="btn btn-accent btn-block">Visite on YT</a>
+                    <a href="{{ team.yt_link }}" class="btn btn-accent btn-block" target="_blank">Visite on YT</a>
                     <div class="text-center mt-2">
-                        <a href="{{ team.fb_link }}"><button class="btn btn-accent"> <i
+                        <a href="{{ team.fb_link }}" target="_blank"><button class="btn btn-accent"> <i
                                     class="fab fa-facebook-f fa-lg	"></i> </button></a>
-                        <a href="{{ team.linkedin_link }}"><button class="btn btn-accent"> <i
+                        <a href="{{ team.linkedin_link }}" target="_blank"><button class="btn btn-accent"> <i
                                     class="fab fa-linkedin-in fa-lg	"></i> </button></a>
                     </div>
                 </div>

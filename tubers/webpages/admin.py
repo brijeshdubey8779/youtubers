@@ -1,11 +1,16 @@
 from django.contrib import admin
 from .models import Slider, Team
-
+from django.utils.html import format_html
 
 class TeamAdmin(admin.ModelAdmin):
+
+    def myphoto(self, object):
+        return format_html('<img src="{}" width="40px" />'.format(object.photo.url))
+
     list_display = (
         "id",
         "first_name",
+        "myphoto",
         "role",
         "created_date",
     )
