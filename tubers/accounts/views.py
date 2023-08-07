@@ -14,11 +14,11 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            messages.error(request, "Succesfully logged in!")
+            messages.success(request, "Succesfully logged in!")
             return redirect("dashboard")
         else:
             messages.error(
-                request, "PLease check the credentials or register if you are new"
+                request, "PLease check the credentials! OR regiter if you are new here."
             )
             return redirect("login")
     return render(request, "accounts/login.html")
@@ -53,7 +53,7 @@ def register(request):
                     messages.success(request, "Account crearted succesfully")
                     return redirect("login")
         else:
-            messages.error(request, "Password do not match")
+            messages.warning(request, "Password do not match")
             return redirect("register")
 
     return render(request, "accounts/register.html")
