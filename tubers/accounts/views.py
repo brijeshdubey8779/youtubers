@@ -1,8 +1,12 @@
+from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect, render
 from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
+from .models import Youtubers
+from django.shortcuts import render, get_object_or_404
+# from .models import Profile
 
 
 def login(request):
@@ -21,6 +25,10 @@ def login(request):
                 request, "PLease check the credentials! OR regiter if you are new here."
             )
             return redirect("login")
+        contactinfo = Contactinfo.objects.latest('id')
+    data = {
+        'contactinfo' : contactinfo
+    }
     return render(request, "accounts/login.html")
 
 
@@ -66,4 +74,11 @@ def logout_user(request):
 
 @login_required(login_url="login")
 def dashboard(request):
-    return render(request, "accounts/dashboard.html")
+    tubers = Youtubers.objects.order_by('-created_date')
+    # tuber = get_object_or_404(Youtubers)
+    contactinfo = User.objects.latest('id')
+    data ={
+        'tuber':tubers,
+        'contactinfo':contactinfo,
+    }
+    return render(request, 'accounts/dashboard.html', data)

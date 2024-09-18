@@ -18,18 +18,21 @@ h2,
 h3 {
 	color: var(--accent);
 }
+
 .btn-accent {
 	background-color: var(--accent);
 	color: #fff;
 	border-color: var(--accent);
 	outline: none;
 }
+
 .btn-accent:hover {
 	color: #fff;
 }
 
 button:hover {
-	animation: pulse; /* referring directly to the animation's @keyframe declaration */
+	animation: pulse;
+	/* referring directly to the animation's @keyframe declaration */
 	animation-duration: 0.5s;
 }
 
@@ -41,6 +44,7 @@ button:hover {
 	font-size: 19px;
 	border-radius: 8px;
 }
+
 textarea {
 	padding: 20px 25px;
 	font-size: 19px;

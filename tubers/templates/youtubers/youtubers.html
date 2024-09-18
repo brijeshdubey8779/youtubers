@@ -10,7 +10,9 @@
   </div>
 
 
+  <!-- original -->
   <section class="container mt-5 mb-5">
+
     <div class="row ">
       <div class="col-lg-8 mb-2 ">
         <section class="tubers">
@@ -23,8 +25,8 @@
             <div class="feature-text">
 
               <a href="{% url 'youtubers_detail' tuber.id %}">
-                <img src="{{ tuber.photo.url }}" class="card-img-top" style="height: 267px; object-fit: cover;"
-                  alt="team-member">
+                <img src="{{ tuber.photo.url }}" class="card-img-top" style="height: 267px; object-fit: cover;" alt={{
+                  tuber.name }}>
               </a>
 
             </div>
@@ -43,28 +45,10 @@
               </div>
             </div>
           </div>
+          {% empty %}
+          <p>No tubers found</p>
           {% endfor %}
           <!-- person 1 end -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         </section>
       </div>
@@ -75,26 +59,29 @@
             <p class="text-left font-weight-bolder text-black-50">
               Search Tubers
             </p>
-            <form>
+            <form method="get" action="{% url 'youtubers' %}">
               <div class="form-group">
                 <select id="inputState" class="form-control">
                   <option selected disabled hidden>City</option>
-                  <option>...</option>
+                  {% for city in city_search %}
+                  <option value="{{ city }}">{{ city }}</option>
+                  {% endfor %}
                 </select>
               </div>
               <div class="form-group">
                 <select id="inputState" class="form-control">
                   <option selected disabled hidden>Camera Type</option>
-                  <option>Value 1</option>
-                  <option>Value 2</option>
-                  <option>Value 3</option>
-                  <option>Value 4</option>
+                  {% for camera in camera_type_search %}
+                  <option value="{{ camera }}">{{ camera }}</option>
+                  {% endfor %}
                 </select>
               </div>
               <div class="form-group">
                 <select class="form-control">
                   <option selected disabled hidden>Category</option>
-                  <option>...</option>
+                  {% for category in category_search %}
+                  <option value="{{ category }}">{{ category }}</option>
+                  {% endfor %}
                 </select>
               </div>
 
@@ -105,9 +92,12 @@
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
+
+  <!--Page Navigation  -->
   <div class="container section pagination-section mt-3">
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-center">

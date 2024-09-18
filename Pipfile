@@ -6,9 +6,13 @@ name = "pypi"
 [packages]
 pillow = "*"
 django = "*"
-psycopg2 = "*"
+psycopg2-binary = "*"
 djangocms-admin-style = "*"
 django-ckeditor = "*"
+django-allauth = "*"
+requests = "*"
+pyjwt = "*"
+cryptography = "*"
 
 [dev-packages]
 

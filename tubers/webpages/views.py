@@ -20,11 +20,19 @@ def home(request):
 
 
 def about(request):
-    return render(request, "webpages/about.html")
+    team_members = Team.objects.all()
+    data ={
+        "team_members": team_members,
+    }
+    return render(request, "webpages/about.html", data)
 
 
 def services(request):
-    return render(request, "webpages/services.html")
+    sliders = Slider.objects.all()
+    data = {
+        "slider": sliders,
+    }
+    return render(request, "webpages/services.html", data)
 
 
 def contact(request):

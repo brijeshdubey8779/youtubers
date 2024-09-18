@@ -1,8 +1,50 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+<main class="services-page">
+    <!-- Slider Section -->
+    <div id="serviceSlider" class="carousel slide top-banner" data-ride="carousel">
+        <div class="carousel-inner">
+            {% for slide in slider %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <img src="{{ slide.photo.url }}" class="d-block w-100" alt="{{ slide.headline }}">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>{{ slide.headline }}</h5>
+                    <p>{{ slide.subtitle }}</p>
+                    <a href="{{ slide.button_link }}" class="btn btn-accent">{{ slide.button_text }}</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#serviceSlider" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#serviceSlider" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
 
-<h2>services page</h2>
+    <!-- Services Section -->
+    <section class="container mt-5 mb-5">
+        <div class="row text-center">
+            <!-- Service Card -->
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card service-card">
+                    <img src="{% static './assets/images/service1.jpg' %}" class="card-img-top" alt="Service 1">
+                    <div class="card-body">
+                        <h5 class="card-title">YTuber Promotions</h5>
+                        <p class="card-text">Promote your brand with our top YTubers.</p>
+                        <a href="#" class="btn btn-accent">Learn More</a>
+                    </div>
+                </div>
+            </div>
 
 
+        </div>
+    </section>
+</main>
 {% endblock %}

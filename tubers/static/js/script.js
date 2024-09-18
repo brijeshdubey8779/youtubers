@@ -48,3 +48,51 @@ $('.team-left ').click(function () {
 $('.team-right').click(function () {
 	$('.slider').slick('slickNext');
 });
+
+
+
+// dfduui
+
+$(document).ready(function () {
+	$('.tubers').slick({
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		autoplay: true,
+		autoplaySpeed: 2000,
+	});
+});
+
+
+$(document).ready(function () {
+	$('.tubers').slick({
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		autoplay: true,
+		autoplaySpeed: 2000,
+		arrows: true, // Add arrows for navigation if needed
+		dots: true,   // Add dots for navigation if needed
+		responsive: [
+			{
+				breakpoint: 1024,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 1
+				}
+			},
+			{
+				breakpoint: 600,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 1
+				}
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1
+				}
+			}
+		]
+	});
+});	

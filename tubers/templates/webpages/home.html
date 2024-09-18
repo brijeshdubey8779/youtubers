@@ -17,7 +17,7 @@
                 </p>
                 <div>
 
-                    <a href="{{ slide.button_link }}">
+                    <a href="{% url 'youtubers' %}">
                         <button class="btn btn-accent pl-3 pr-3 text-capitalize font-weight-bold">
                             {{ slide.button_text }}
                         </button>
@@ -54,8 +54,10 @@
             {% for fy in featured_youtubers %}
             <div class="card border-0 text-center ml-3 mr-3">
                 <div class="feature-text">
-                    <img src="{{ fy.photo.url }}" class="card-img-top"
-                        style="width:100%; height: 267px; object-fit: cover;" alt="team-member {{ fy.name }}">
+                    <a href="{% url 'youtubers_detail' fy.id %}">
+                        <img src="{{ fy.photo.url }}" class="card-img-top"
+                            style="width:100%; height: 267px; object-fit: cover;" alt="team-member {{ fy.name }}">
+                    </a>
                     <span class="text-left bg-accent font-weight-bold">
                         Featured
                     </span>
@@ -96,10 +98,12 @@
         <div class="tubers grid">
             <!-- person 1 -->
             {% for lob in latest_on_board %}
-            <div class="card border-0 text-center">
+            <div class="card border-0 text-center ml-3 mr-3">
                 <div>
-                    <img src="{{ lob.photo.url }}" class="card-img-top" style="height: 267px; object-fit: cover;"
-                        alt="team-member">
+                    <a href="{% url 'youtubers_detail' lob.id %}">
+                        <img src="{{ lob.photo.url }}" class="card-img-top" style="height: 267px; object-fit: cover;"
+                            alt="team-member">
+                    </a>
 
                 </div>
                 <div class="card-body">

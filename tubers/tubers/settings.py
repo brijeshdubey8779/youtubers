@@ -52,6 +52,11 @@ INSTALLED_APPS = [
     "allauth.socialaccount.providers.google",
 ]
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -60,6 +65,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "allauth.account.middleware.AccountMiddleware",
+    'django.middleware.csrf.CsrfViewMiddleware',
 ]
 
 ROOT_URLCONF = "tubers.urls"
@@ -89,12 +96,14 @@ WSGI_APPLICATION = "tubers.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "lcotubers",
-        "USER": "postgres",
-        "PASSWORD": "password**",
-        "HOST": "localhost",
+        "NAME": "lcotubers",       
+        "USER": "postgres",        
+        "PASSWORD": "1234512345",  
+        "HOST": "172.17.0.2",      
+        "PORT": "5432",            
     }
 }
+
 
 
 # Password validation
@@ -134,6 +143,10 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "tubers/static")]
+
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
