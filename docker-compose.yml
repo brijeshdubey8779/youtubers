@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres
+    container_name: youtubers_db
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: lcotubers
+      POSTGRES_USER: brijesh
+      POSTGRES_PASSWORD: 12345
+    ports:
+      - "5433:5432"
+
+  web:
+    build: .
+    container_name: youtubers_app
+    restart: always
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    environment:
+      DEBUG: "True"
+      # Use the Docker service name 'db' as the host for the PostgreSQL database
+      DATABASE_URL: "postgres://brijesh:12345@db:5432/lcotubers"
+    ports:
+      - "8000:8000"
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
+volumes:
+  postgres_data:

@@ -6,6 +6,7 @@ from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 from .models import Youtubers
 from django.shortcuts import render, get_object_or_404
+from  contactinfo.models import Contactinfo
 # from .models import Profile
 
 
@@ -25,10 +26,11 @@ def login(request):
                 request, "PLease check the credentials! OR regiter if you are new here."
             )
             return redirect("login")
-        contactinfo = Contactinfo.objects.latest('id')
-    data = {
-        'contactinfo' : contactinfo
-    }
+        # contactinfo = Contactinfo.objects.latest('id')
+        # contactinfo = User.objects.latest('id')
+    # data = {
+    #     'contactinfo':contactinfo,
+    # }
     return render(request, "accounts/login.html")
 
 
